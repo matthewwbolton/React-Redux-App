@@ -1,4 +1,10 @@
-import { FETCH_DATA, UPDATE_STATUS, SET_ERROR, SET_COUNTRY } from "../actions";
+import {
+  FETCH_DATA,
+  UPDATE_STATUS,
+  SET_ERROR,
+  SET_COUNTRY,
+  SET_SEARCH
+} from "../actions";
 
 const initialState = {
   countryData: [],
@@ -30,6 +36,15 @@ export const reducer = (state = initialState, action) => {
       };
 
     case SET_COUNTRY:
+      return {
+        ...state,
+        countryData: state.countryData.filter(
+          elem => elem.Country === action.payload
+        )
+      };
+
+    case SET_SEARCH:
+      console.log("^^^^^^^", action.payload);
       return {
         ...state,
         countryData: state.countryData.filter(

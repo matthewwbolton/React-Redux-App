@@ -3,12 +3,20 @@ import axios from "axios";
 export const FETCH_DATA = "FETCH_DATA";
 export const UPDATE_STATUS = "UPDATE_STATUS";
 export const SET_ERROR = "SET_ERROR";
+export const SET_SEARCH = "SET_SEARCH";
 
 export const SET_COUNTRY = "SET_COUNTRY";
 
 export const setCountry = country => {
   return {
     type: SET_COUNTRY,
+    payload: country
+  };
+};
+
+export const setSearch = country => {
+  return {
+    type: SET_SEARCH,
     payload: country
   };
 };

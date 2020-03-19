@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSearch } from "../actions";
 
 const SearchForm = () => {
   const [query, setQuery] = useState("");
@@ -7,9 +9,13 @@ const SearchForm = () => {
     setQuery(e.target.value);
   };
 
-  //   const handleSubmit = e => {
-  //     e.preventDefault;
-  //   };
+  const dispatch = useDispatch();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch(setSearch(query));
+    setQuery("");
+  };
 
   return (
     <div>
@@ -22,7 +28,9 @@ const SearchForm = () => {
           value={query}
         />
       </label>
-      <button type="submit">Search</button>
+      <button onClick={handleSubmit} type="submit">
+        Search
+      </button>
     </div>
   );
 };

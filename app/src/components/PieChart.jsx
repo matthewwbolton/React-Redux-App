@@ -1,6 +1,12 @@
 import React from "react";
 import PieChart from "react-minimal-pie-chart";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
+
+const WrapperDiv = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const NewPieChart = () => {
   const state = useSelector(state => state);
@@ -8,7 +14,7 @@ const NewPieChart = () => {
   console.log("@@@@@@@", state);
 
   return (
-    <div>
+    <WrapperDiv>
       <PieChart
         data={[
           {
@@ -23,7 +29,7 @@ const NewPieChart = () => {
           }
         ]}
       />
-    </div>
+    </WrapperDiv>
   );
 };
 
